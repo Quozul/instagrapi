@@ -173,7 +173,7 @@ class SharedMediaImageCandidate(TypesBaseModel):
 
     estimated_scans_sizes: List[int] = []
     height: int
-    scans_profile: str
+    scans_profile: Optional[str] = None
     url: str
     width: int
 
@@ -242,7 +242,7 @@ class ClipsAdditionalAudioInfo(TypesBaseModel):
 class ClipsAudioRankingInfo(TypesBaseModel):
     """Audio ranking information for clips"""
 
-    best_audio_cluster_id: str
+    best_audio_cluster_id: Optional[str] = None
 
 
 class ClipsBrandedContentTagInfo(TypesBaseModel):
@@ -304,7 +304,7 @@ class ClipsIgArtist(TypesBaseModel):
     full_name: str
     is_private: bool = False
     is_verified: bool = False
-    profile_pic_id: str
+    profile_pic_id: Optional[str] = None
     profile_pic_url: str
     strong_id__: str
 
@@ -360,8 +360,8 @@ class ClipsMetadata(TypesBaseModel):
     achievements_info: ClipsAchievementsInfo
     additional_audio_info: ClipsAdditionalAudioInfo
     asset_recommendation_info: Optional[dict] = None
-    audio_ranking_info: ClipsAudioRankingInfo
-    audio_type: str = "original_sounds"
+    audio_ranking_info: ClipsAudioRankingInfo | None = None
+    audio_type: str | None = "original_sounds"
     branded_content_tag_info: ClipsBrandedContentTagInfo
     breaking_content_info: Optional[dict] = None
     breaking_creator_info: Optional[dict] = None
